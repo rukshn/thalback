@@ -186,7 +186,7 @@ def new_surgical_details():
 		else:
 			has_legulcer = 0
 
-		if content['pathological_fracture'] == True
+		if content['pathological_fracture'] == True:
 			has_fracture = 1
 		else:
 			has_fracture = 0
@@ -201,7 +201,7 @@ def new_surgical_details():
 		else:
 			return jsonify(state = 500)
 	
-@app.route('/new_tsh_data', method=['post'])
+@app.route('/new_tsh_data', methods=['post'])
 def new_tsh_data():
 	connection, meta = connect_db()
 	tbl_tsh = meta.tables['tbl_tsh'] #todo change table name 
@@ -224,7 +224,7 @@ def new_tsh_data():
 	else:
 		return jsonify(state = 500)
 
-@app.route('/new_lft', method['post'])
+@app.route('/new_lft', methods=['post'])
 def new_lft():
 	connection, meta = connect_db()
 	tbl_tsh = meta.tables['tbl_lft'] #todo change table name 
@@ -252,7 +252,7 @@ def new_lft():
 	else:
 		return jsonify(state = 500)
 	
-@app.route('/new_hormone_investigation', method=['post'])
+@app.route('/new_hormone_investigation', methods=['post'])
 def new_hormone_investigation():
 	connection, meta = connect_db()
 	tbl_hormone = meta.tables['tbl_hormone'] #todo change table name 
@@ -277,10 +277,10 @@ def new_hormone_investigation():
 		horm_ins = tbl_hormone.insert().execute(horm_details)
 
 		return jsonify(state = 200)
-	else
+	else:
 		return jsonify(state = 500)
 
-@app.route('/new_fbc', method=['post'])
+@app.route('/new_fbc', methods=['post'])
 def new_fbc():
 	connection, meta = connect_db()
 	tbl_fbc = meta.tables['tbl_fbc'] #todo change table name 
@@ -315,7 +315,7 @@ def new_fbc():
 	else:
 		return jsonify(state = 500)
 
-@app.route('/new_tx', method=['post'])
+@app.route('/new_tx', methods=['post'])
 def new_tx():
 	connection, meta = connect_db()
 	tbl_newtx = meta.tables['tbl_newtx'] #todo change table name 
@@ -325,7 +325,7 @@ def new_tx():
 
 	if patient_exist == True:
 		tx_info = {}
-		tx_info['patient_id'] = content['pid'']
+		tx_info['patient_id'] = content['pid']
 		tx_info['packs'] = content['packs']
 		tx_info['reactions'] = content['reactions']
 		tx_info['reaction_note'] = content['reaction_note']
